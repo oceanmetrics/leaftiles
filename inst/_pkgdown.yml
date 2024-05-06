@@ -1,0 +1,14 @@
+url: https://oceanmetrics.github.io/leaftiles/
+reference:
+- title: "Vector Tiles"
+  desc: functions to render vector tiles, especially as output from [pg_tileserv](https://github.com/CrunchyData/pg_tileserv)
+  contents:
+  - has_concept("vectortiles")
+- title: "Raster Tiles"
+  desc: functions to render rasters from Cloud-Optimized GeoTIFFs (COGs)
+  contents:
+  - has_concept("cogtiles")
+- title: "Other"
+  desc: check for other functions or datasets not captured by above categories
+  contents:
+  - lacks_concepts(c("vectortiles", "cogtiles"))

@@ -1,0 +1,41 @@
+---
+pagetitle: "leaftiles"
+output:
+  github_document:
+    html_preview: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r knitr, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  warning = F,
+  comment = "#>",
+  fig.path="man/figures/"
+)
+```
+
+# leaftiles
+
+This R package contains functions for adding layers to an R [leaflet]( https://rstudio.github.io/leaflet/) map from vector tiles using [Leaflet.VectorGrid]( https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html).
+
+Later, COGs.
+ 
+## Vector Tiles
+
+```{r setup}
+library(leaftiles)
+```
+
+```{r readme-addVectorTiles}
+library(leaflet)
+
+leaflet() |>
+  addTiles() |>
+  setView(-122.4, 33.8, 4) |>
+  addVectorTiles(
+    server  = "https://tile.calcofi.io",
+    layer   = "public.stations",
+    layerId = "stationid")
+```
