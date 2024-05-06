@@ -44,6 +44,8 @@ map object from \code{leaflet::leaflet()} with vector tile layer added
 }
 }
 \examples{
+library(leaflet)
+
 leaflet() |>
   addTiles() |>
   setView(-122.4, 33.8, 4) |>
