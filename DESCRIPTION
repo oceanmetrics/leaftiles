@@ -1,6 +1,8 @@
 Package: leaftiles
 Title: What the Package Does (One Line, Title Case)
 Version: 0.1.0
+URL: https://oceanmetrics.github.io/leaftiles
+BugReports: https://github.com/oceanmetrics/leaftiles/issues
 Authors@R: 
     person("Ben", "Best", , "ben@ecoquants.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2686-0784"))
@@ -9,6 +11,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+Depends: 
+    R (>= 4.1)
+LazyData: true
 Imports: 
     glue,
     leaflet

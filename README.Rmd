@@ -24,7 +24,7 @@ Later, COGs.
  
 ## Vector Tiles
 
-```{r readme-addVectorTiles, eval=F}
+```{r, eval=F}
 library(leaftiles)
 library(leaflet)
 
@@ -37,7 +37,7 @@ leaflet() |>
     layerId = "stationid")
 ```
 
-```{r, echo=FALSE}
+```{r readme-addVectorTiles, echo=FALSE}
 webshot2::webshot(
   "https://oceanmetrics.github.io/leaftiles/articles/leaftiles.html",
   "man/figures/readme-addVectorTiles-1.png", 

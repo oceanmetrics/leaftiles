@@ -23,4 +23,4 @@ leaflet() |>
     layerId = "stationid")
 ```
 
-![](man/figures/unnamed-chunk-1-1.png)<!-- -->
+![](man/figures/readme-addVectorTiles-1.png)<!-- -->
