@@ -12,9 +12,6 @@ Later, COGs.
 
 ``` r
 library(leaftiles)
-```
-
-``` r
 library(leaflet)
 
 leaflet() |>
@@ -26,4 +23,4 @@ leaflet() |>
     layerId = "stationid")
 ```
 
-![](man/figures/readme-addVectorTiles-1.png)<!-- -->
+![](man/figures/unnamed-chunk-1-1.png)<!-- -->
