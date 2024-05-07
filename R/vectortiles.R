@@ -7,6 +7,7 @@
 #' @param layer layer name
 #' @param layerId column name to uniquely identify each feature in layer
 #' @param style style as a list object
+#' @param styleHighlight style as a list object for clicked feature
 #' @param group group
 #' @param pane pane in leaflet map
 #' @param attribution attribution for layer

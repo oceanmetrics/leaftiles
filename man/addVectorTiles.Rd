@@ -29,6 +29,8 @@ addVectorTiles(
 
 \item{style}{style as a list object}
 
+\item{styleHighlight}{style as a list object for clicked feature}
+
 \item{group}{group}
 
 \item{pane}{pane in leaflet map}
