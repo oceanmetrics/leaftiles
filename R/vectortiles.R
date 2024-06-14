@@ -1,16 +1,21 @@
 #' addVectorTiles
 #'
-#' - [Leaflet.VectorGrid API reference](https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html)
+#' Add vector tiles layer to leaflet map using the [Leaflet.VectorGrid API
+#' reference](https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html).
 #'
 #' @param map map object from `leaflet::leaflet()`
 #' @param server URL to tile server
 #' @param layer layer name
+#' @param filter filter string using [Common Query Language
+#'   (CQL)](https://github.com/CrunchyData/pg_tileserv/blob/master/hugo/content/usage/cql.md)
+#'   syntax. Defaults to an empty string `""`.
 #' @param layerId column name to uniquely identify each feature in layer
 #' @param style style as a list object
 #' @param styleHighlight style as a list object for clicked feature
 #' @param group group
 #' @param pane pane in leaflet map
 #' @param attribution attribution for layer
+#' @param debug show the JavaScript code for the `map |> onRender(js_lyr)`
 #'
 #' @return map object from `leaflet::leaflet()` with vector tile layer added
 #' @concept vectortiles
@@ -33,6 +38,7 @@ addVectorTiles = function(
     map,
     server,
     layer,
+    filter = "",
     layerId,
     style = list(
       fill        = TRUE,
@@ -50,15 +56,16 @@ addVectorTiles = function(
       opacity     = 0.7,
       weight      = 0.1,
       radius      = 0.8),
-    group   = "",
-    pane    = "overlayPane",
-    attribution = NULL) {
+    group       = "",
+    pane        = "overlayPane",
+    attribution = NULL,
+    debug       = FALSE) {
 
   # debug ----
   # devtools::load_all(); server = "https://tile.calcofi.io"; layer  = "public.stations"; layerId = "stationid"; map <- leaflet() |> addTiles()
 
   # checks ----
-  stopifnot(all(c("leaflet", "htmlwidget") %in% class(map)))
+  stopifnot(any(c("leaflet", "leaflet_proxy") %in% class(map)))
 
   if (length(style) == 0)
     stop("need at least one paint rule set to know which layer to visualise")
@@ -85,6 +92,9 @@ addVectorTiles = function(
   # js_lyr <- readLines("inst/test.js") |> paste(collapse = "\n")
   # paste('"', js_lyr, '"') |>  cat()
   # js_lyr |>  cat()
+
+  if (debug)
+    message('map |> htmlwidgets::onRender("', js_lyr, '")')
 
   map |>
     htmlwidgets::onRender(js_lyr)

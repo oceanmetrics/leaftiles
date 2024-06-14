@@ -8,6 +8,7 @@ addVectorTiles(
   map,
   server,
   layer,
+  filter = "",
   layerId,
   style = list(fill = TRUE, fillColor = "purple", fillOpacity = 0.2, color = "purple",
     opacity = 0.7, weight = 0.1, radius = 0.8),
@@ -15,7 +16,8 @@ addVectorTiles(
     "red", opacity = 0.7, weight = 0.1, radius = 0.8),
   group = "",
   pane = "overlayPane",
-  attribution = NULL
+  attribution = NULL,
+  debug = FALSE
 )
 }
 \arguments{
@@ -24,6 +26,9 @@ addVectorTiles(
 \item{server}{URL to tile server}
 
 \item{layer}{layer name}
+
+\item{filter}{filter string using \href{https://github.com/CrunchyData/pg_tileserv/blob/master/hugo/content/usage/cql.md}{Common Query Language (CQL)}
+syntax. Defaults to an empty string \code{""}.}
 
 \item{layerId}{column name to uniquely identify each feature in layer}
 
@@ -36,14 +41,14 @@ addVectorTiles(
 \item{pane}{pane in leaflet map}
 
 \item{attribution}{attribution for layer}
+
+\item{debug}{show the JavaScript code for the \code{map |> onRender(js_lyr)}}
 }
 \value{
 map object from \code{leaflet::leaflet()} with vector tile layer added
 }
 \description{
-\itemize{
-\item \href{https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html}{Leaflet.VectorGrid API reference}
-}
+Add vector tiles layer to leaflet map using the \href{https://leaflet.github.io/Leaflet.VectorGrid/vectorgrid-api-docs.html}{Leaflet.VectorGrid API reference}.
 }
 \examples{
 library(leaflet)

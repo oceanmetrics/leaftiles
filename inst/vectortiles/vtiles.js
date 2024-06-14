@@ -1,7 +1,12 @@
 function(el, x) {
   var vectorServer  = '{{server}}';
   var vectorLayerId = '{{layer}}';
+  var vectorFilter  = '{{filter}}';
+
   var vectorUrl     = vectorServer + '/' + vectorLayerId + '/{z}/{x}/{y}.pbf';
+
+  if (vectorFilter)
+    var vectorUrl = vectorUrl + '?filter=' + vectorFilter;
 
   console.log('Reading tiles from ' + vectorUrl);
 
